@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prepr Challenge 3</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    {% comment %}
+    <nav class="" id="nav">
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="26"
+              viewBox="0 -960 960 960"
+              width="26"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">My Labs</a></li>
+        <li><a href="#">My Challenges</a></li>
+        <li><a href="#">My Projects</a></li>
+        <!-- <input type="search" placeholder="search here..." /> -->
+
+        <div class="">
+          <input type="search" placeholder="search here..." />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="50"
+            viewBox="0 -960 960 960"
+            width="50"
+          >
+            <path
+              d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"
+            />
+          </svg>
+        </div>
+      </ul>
+      <ul>
+        <li>
+          <a href="#"
+            ><img
+              src="{% static 'images/preprLogo.png' %}"
+              class="logo"
+              alt="Prepr logo"
+          /></a>
+        </li>
+        <li class="hideOnMobile"><a href="#">Explore</a></li>
+        <li class="hideOnMobile"><a href="#">Dashboard</a></li>
+        <li class="hideOnMobile"><a href="#">My Labs</a></li>
+        <li class="hideOnMobile"><a href="#">My Challenges</a></li>
+        <li class="hideOnMobile"><a href="#">My Projects</a></li>
+
+        <!-- <img
+          src="accessibility.png"
+          class="acc-image hideOnMobile"
+          id="access"
+          alt="accessibility image"
+          style="width: 35px; height: 35px"
+          onclick="toggleMenu()"
+        /> -->
+        <div class="searchBox hideOnMobile">
+          <input
+            type="search"
+            placeholder="Search..."
+            style="visibility: hidden"
+          />
+          <div class="toggle-btn" id="btn">
+            <span id="btnText">Dark Mode</span>
+            <img src="{% static 'images/moon2.png' %}" id="btnIcon" />
+          </div>
+
+          <!-- <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="50"
+            viewBox="0 -960 960 960"
+            width="50"
+            onclick="toggleMenu()"
+          >
+            <path
+              d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"
+            />
+          </svg> -->
+        </div>
+        <!-- Button trigger modal -->
+        <!-- <button
+          type="button"
+          class="access-btn btn hideOnMobile"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          <img
+            src="accessibility.png"
+            class="acc-image hideOnMobile"
+            id="access"
+            alt="accessibility image"
+            style="width: 35px; height: 35px"
+          />
+        </button> -->
+
+        <button
+          type="button"
+          data-open-modal
+          class="access-btn btn hideOnMobile"
+        >
+          <img
+            src="{% static 'images/accessibility.png' %}"
+            class="acc-image hideOnMobile"
+            id="access"
+            alt="accessibility image"
+            style="width: 35px; height: 35px"
+          />
+        </button>
+
+        <dialog data-modal class="custom-modal" id="modal">
+          <div>
+            <button data-close-modal class="modal-close">X</button>
+            <button data-close-modal class="modal-question">?</button>
+          </div>
+          <div style="margin-top: 60px">
+            <div class="heading">
+              <h2>Accessibility Settings</h2>
+            </div>
+            <div style="margin-left: 12%">
+              <button data-close-modal class="button-30">Reset Settings</button>
+              <button
+                data-close-modal
+                class="position-btn button-30"
+                id="changePosition"
+              >
+                Reposition
+              </button>
+              <select class="button-30" id="languages" name="languages">
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Italian">Italian</option>
+                <option value="Korean">Korean</option>
+                <option value="Tamil">Tamil</option>
+              </select>
+            </div>
+            <div class="modal-search">
+              <input type="text" placeholder="Search..." />
+            </div>
+            <div class="heading">
+              <h6>Adjust the accessibility profile to fit your needs:</h6>
+            </div>
+            <div class="reg-container" style="display: inline-block">
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img class="icon-img" src="{% static 'images/eye.png' %}" />
+                </div>
+                <div>
+                  <span style="font-weight: bold">Vision Impared <br /></span>
+                  <span>Enhances the website's visuals</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img
+                    class="icon-img"
+                    src="{% static 'images/ereader.png' %}"
+                  />
+                </div>
+                <div>
+                  <span style="font-weight: bold"
+                    >Blind Users(Screen Reader)<br />
+                  </span>
+                  <span> Use the website with your screen reader</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img class="icon-img" src="{% static 'images/brain.png' %}" />
+                </div>
+                <div>
+                  <span style="font-weight: bold">Seziure Safe<br /></span>
+                  <span>Eliminates flashes and reduces colour</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img
+                    class="icon-img"
+                    src="{% static 'images/cognitive.png' %}"
+                  />
+                </div>
+                <div>
+                  <span style="font-weight: bold"
+                    >Cognitive Disability<br />
+                  </span>
+                  <span>Assists with reading and focusing</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img
+                    class="icon-img"
+                    src="{% static 'images/target.png' %}"
+                  />
+                </div>
+                <div>
+                  <span style="font-weight: bold">ADHD Friendly<br /></span>
+                  <span>More focus and fewer distractions</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="regular-settings">
+                <div class="icon-area">
+                  <img
+                    class="icon-img"
+                    src="{% static 'images/keyboard.png' %}"
+                  />
+                </div>
+                <div>
+                  <span style="font-weight: bold"
+                    >Keyboard Navigation(Monitor)<br
+                  /></span>
+                  <span>Use the website with a keyboard</span>
+                </div>
+                <div class="on-off-switch">
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="extra-adj">
+              <h5 style="text-align: left">Extra Adjustments:</h5>
+              <div>
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/mute.png' %}"
+                    width="30px"
+                    height="30px"
+                  />
+                  <br />Mute Sounds
+                </button>
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/book.png' %}"
+                    width="30px"
+                    height="30px"
+                  /><br />
+                  Read Mode
+                </button>
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/animation.png' %}"
+                    width="30px"
+                    height="30px"
+                  />
+                  <br />
+                  Stop Animations
+                </button>
+              </div>
+              <div style="margin-top: 10px">
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/dark-contrast.png' %}"
+                    width="30px"
+                    height="30px"
+                  />
+                  <br />
+                  Dark Contrast
+                </button>
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/contrast.png' %}"
+                    width="30px"
+                    height="30px"
+                  /><br />
+                  Light Contrast
+                </button>
+                <button class="extra-setting">
+                  <img
+                    src="{% static 'images/black-and-white.png' %}"
+                    width="30px"
+                    height="30px"
+                  /><br />Monochrome
+                </button>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- Modal -->
+        <!-- <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Modal title
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">...</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <img
+          src="{% static 'images/profile-icon.png' %}"
+          class="profile-image hideOnMobile"
+          id="profile"
+          alt="profile image"
+          style="width: 35px; height: 35px"
+          onclick="toggleMenu()"
+        />
+
+        <div class="sub-menu-wrap" id="sub-menu">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img
+                src="{% static 'images/profile-icon.png' %}"
+                class="profil-icon"
+                alt="profile image"
+                style="width: 55px; height: 55px"
+              />
+              <h4>Rhagavy Rakulan</h4>
+            </div>
+            <hr />
+            <a href="#" class="sub-menu-link">
+              <p>Profile</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <p>Newsfeed</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <p>Settings</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <p>Help</p>
+              <span>></span>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <p>Logout</p>
+              <span>></span>
+            </a>
+          </div>
+        </div>
+
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <img
+              src="{% static 'images/menu.png' %}"
+              class="menu-icon"
+              id="menu-icon"
+              alt="menu icon image"
+              style="width: 40px; height: 40px"
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {% endcomment %} {% include 'navbar.html' %}
+    <div class="dashboard">
+      <h3>Welcome Back, {{ user.first_name }}!</h3>
+      <div class="dash-elements">
+        <div class="progress-section element">
+          <div class="box-content">
+            <h5 class="headings">My Progress</h5>
+            <p id="progressText"> 
+              You joined Preprlabs on Oct 16, 2023, here is your Challenge
+              journey.
+            </p>
+
+            <div>
+              <div><img src="https://preprlabs.org/assets/images/dashboard/challenge-leaf-1.svg" class="leaf">Project Submitted: <span>11</span></div>
+              <div><img src="https://preprlabs.org/assets/images/dashboard/challenge-leaf-2.svg" class="leaf"/>Project Created: <span>11<span></div>
+              <div><img src="https://preprlabs.org/assets/images/dashboard/challenge-leaf-3.svg" class="leaf"/>Invited: <span>10</span></div>
+              <div><img src="https://preprlabs.org/assets/images/dashboard/challenge-leaf-4.svg" class="leaf"/>Followed: <span>3</span></div>
+            </div>
+            <img src="{% static 'images/roadmap.png'  %}" width="30%" height="30%" style="margin-left: 33%">
+          </div>
+        </div>
+        <div class="mailbox element">
+          <div class="box-content">
+            <div >
+              <div style="display: flex;">
+                <h5 class="headings">Inbox</h5>
+                <button class ="search-button"style="margin-left: 60% ">View Mail</button>
+              </div>
+            </div>
+            <img
+              src="{% static 'images/message.png' %}"
+              width="45%"
+              height="45%"
+            />
+            <p class="inbox-text">No new messages</p>
+          </div>
+        </div>
+        <div class="deadlines element">
+          <div class="box-content">
+            <h5 class="headings">Upcoming Deadlines</h5>
+            <div>
+              <div>
+                <div class="deadline-box">
+                  <a href="#">
+                    <div class="deadline">
+                      <img src="{% static 'images/schedule.png' %}" width="11%" height="11%"/>
+                      <div>
+                        <p><span style="font-weight: bold; text-decoration: none;">DTP - Marketing Challenge</span><br/><span style="color:#727d92">Due December 1 at 5:00 PM<span></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a href="#">
+                  <div class="deadline-box">
+                    <a href="#">
+                      <div class="deadline">
+                        <img src="{% static 'images/schedule.png' %}" width="11%" height="11%"/>
+                        <div>
+                          <p><span style="font-weight: bold; text-decoration: none;">DTP- Business Innovation Challenge</span><br/><span style="color:#727d92">Due December 1 at 11:59 PM<span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </a>
+                <a href="#">
+                  <div class="deadline-box">
+                    <a href="#">
+                      <div class="deadline">
+                        <img src="{% static 'images/schedule.png' %}" width="11%" height="11%"/>
+                        <div>
+                          <p><span style="font-weight: bold; text-decoration: none;">Web Dev - Challenge 2</span><br/><span style="color:#727d92">Due December 5 at 5:00 PM<span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </a>
+                <a href="#">
+                  <div class="deadline-box">
+                    <a href="#">
+                      <div class="deadline">
+                        <img src="{% static 'images/schedule.png' %}" width="11%" height="11%"/>
+                        <div>
+                          <p><span style="font-weight: bold; text-decoration: none;">Web Dev - Challenge 3</span><br/><span style="color:#727d92">Due December 12 at 5:00 PM<span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </a>
+                <a href="#">
+                  <div class="deadline-box">
+                    <a href="#">
+                      <div class="deadline">
+                        <img src="{% static 'images/schedule.png' %}" width="11%" height="11%"/>
+                        <div>
+                          <p><span style="font-weight: bold; text-decoration: none;">Web Dev - Challenge 4</span><br/><span style="color:#727d92">Due December 1 at 5:00 PM<span></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-section">
+        <div class="user-projects">
+          <div class="project-content">
+            <div style="display: flex;">
+              <h5 class="headings">My Projects</h5>
+              <button class ="contentButton"style="margin-left: 80% ">
+                <a href="{% url 'createProject' %}" style="text-decoration:none; color:white;">Create+</a>
+              </button>
+            </div>
+            </div>
+            {% for project in projects %}
+            <div>
+              <div class="card projectCard">
+                <img
+                  src="{{MEDIA_URL}}{{project.bannerImage.url}}"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body" sty>
+                  <div class="text-section">
+                    <h4 class="card-title" style="font-weight: bold">
+                      {{project.projectName}}
+                    </h4>
+                    <p class="card-text">
+                      {{project.projectOverview}}
+                    </p>
+                  </div>
+                  <div class="cta-section">
+                    <a href="#" class="search-button">Edit</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

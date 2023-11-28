@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prepr Challenge 3</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+        />
+    </head>
+    <body class="body2">
+        {% include 'navbar.html' %} 
+        <div class="create-project">
+            <div class="create-form">
+                <h2>Create a Project</h2>
+                <form enctype="multipart/form-data" action="{% url 'createProject' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="input-file" id="drop-area" style="margin-left: 20%; margin-top: 3%;">
+                        <input type="file" name="bannerImage" accept="image/*" id="input-file" hidden>
+                        <div id="img-view">
+                            
+                            <img src="{% static 'images/upload.png' %}" alt="" width="50%" height="50%" id="upload-icon">
+                            <p id="text">Drag & drop or click here</br>to upload image<span>Upload image from desktop</span></p>
+                            
+                        </div>
+                    </label>
+                    <div style="display: flex; margin-top: 5%;">
+                        <div id="section1">
+                            <div class="form-element">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" class="projectInput" id="projectName" name="projectName"><br><br>
+                            </div>
+                            <div class="form-element">
+                                <label for="projectOverview">Project Overview</label><br/>
+                                <textarea class="projectInput" id="projectOverview" name="projectOverview" rows="4" cols="35" maxlength="300" placeholder="Max 300 characters"></textarea>
+                            </div>
+                            <div class="form-element">
+                                <label for="startDate">Project Start Date</label>
+                                <input class="projectInput" type="date" id="startDate" name="startDate">
+                            </div>
+                            <div class="form-element">
+                                <label for="recruitingStatus">Recruting Status</label>
+                                <select class="projectInput" name="recruitingStatus" id="recruitingStatus">
+                                    <option value="recruiting">Currently recruiting</option>
+                                    <option value="not recruiting">Not currently recruiting</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="section2" style="margin-left: 10%">
+                            <div class="form-element">
+                                <label for="slug">Project Slug</label>
+                                <input type="text" class="projectInput" id="slug" name="slug" placeholder="Max 140 character" maxlength="140">
+                            </div>
+                            <div class="form-element">
+                                <label for="type">Type</label>
+                                <select name="type" class="projectInput" id="type">
+                                    <option value="capstone">Capstone</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="passion">Passion</option>
+                                    <option value="startup">Start-up</option>
+                                    <option value="learning">Learning</option>
+                                    <option value="work">Work</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-element">
+                                <label for="category">Category</label>
+                                <select name="category" class="projectInput" id="category">
+                                    <option value="community organization">Community Organization</option>
+                                    <option value="non-for-profit">Non-for-profit</option>
+                                    <option value="district school board">District School board</option>
+                                    <option value="board of trade">Board of Trade</option>
+                                    <option value="chamber of commerce">Chamber of Commerce</option>
+                                    <option value="everyone">Everyone</option>
+                                </select>
+                            </div>
+                            <div class="form-element">
+                                <label for="stage">Stage</label>
+                                <select name="stage" class="projectInput" id="stage">
+                                    <option value="prototype">Prototype</option>
+                                    <option value="validation">Validation</option>
+                                    <option value="experimentation">Experimentation</option>
+                                    <option value="pre-incubation">Pre-incubation</option>
+                                    <option value="incubation">Incubation</option>
+                                    <option value="acceleration">Acceleration</option>
+                                    <option value="scale-up">Scale-up</option>
+                                    <option value="concept">Concept</option>
+                                    <option value="idea">Idea</option>
+                                </select>
+                            </div>
+                            <div class="form-element">
+                                <label for="projectStatus">Project Status</label>
+                                <select name="projectStatus" class="projectInput" id="projectStatus">
+                                    <option value="active">Active</option>
+                                    <option value="on-hold">On-Hold</option>
+                                    <option value="fundraising">Fundraising</option>
+                                    <option value="closed">Closed</option>
+                                    <option value="started">Started</option>
+                                    <option value="submitted">Submitted</option>
+                                    <option value="under assessment">Under Assessment</option>
+                                    <option value="assessment complete">Assessment Complete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input
+                          type="submit"
+                          value="Register"
+                          class="btn btn-primary btn-lg"
+                        />
+                </form>
+            </div>
+
+        </div>
+
+        <footer></footer>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"
+        ></script>
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
